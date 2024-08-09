@@ -1,4 +1,4 @@
-import { UserAlreadyExistsError } from '../errors/user-already-exists-error';
+import { UserAlreadyExistsError } from './errors/user-already-exists-error';
 import { UsersRepository } from '@/repositories/users-repository';
 import { ResgisterRequestType } from '@/types/request/registerRequestType';
 import { CreateUserResponseType } from '@/types/response/CreateUserResponseType';
