@@ -1,16 +1,18 @@
 import { compare } from 'bcryptjs'
-import { expect, describe, it } from 'vitest'
+import { expect, describe, it, beforeEach } from 'vitest'
 import { RegisterService} from './register.service'
 import { InMemoryUsersRepository } from '../repositories/inMemory/in-memory-user-repository'
 import { UserAlreadyExistsError } from './errors/user-already-exists-error'
-
+ 
+let usersRepository: InMemoryUsersRepository 
+let sut: RegisterService
 describe('Register Use Case', () => {
-
+  beforeEach(() => {
+    usersRepository = new InMemoryUsersRepository();
+    sut = new RegisterService(usersRepository)
+  })
   it('should hash user password upon registration', async () => {
-    const usersRepository = new InMemoryUsersRepository();
-    const registerService = new RegisterService(usersRepository)
-
-    const { user } = await registerService.createUser({
+    const { user } = await sut.createUser({
       name: 'John Doe',
       email: 'johndoe@example.com',
       password: '123456',
@@ -25,19 +27,16 @@ describe('Register Use Case', () => {
   })
 
   it('should not be able to register with same email twice', async () => {
-    const usersRepository = new InMemoryUsersRepository();
-    const registerService = new RegisterService(usersRepository)
-
     const email = 'johndoe@example.com'
 
-    await registerService.createUser({
+    await sut.createUser({
       name: 'John Doe',
       email,
       password: '123456',
     })
 
     await expect(() =>
-      registerService.createUser({
+      sut.createUser({
         name: 'John Doe',
         email,
         password: '123456',
@@ -46,10 +45,7 @@ describe('Register Use Case', () => {
   })
 
   it('should be able to register', async () => {
-    const usersRepository = new InMemoryUsersRepository();
-    const registerService = new RegisterService(usersRepository)
-
-    const { user } = await registerService.createUser({
+    const { user } = await sut.createUser({
       name: 'John Doe',
       email: 'johndoe@example.com',
       password: '123456',
