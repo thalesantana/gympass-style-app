@@ -1,6 +1,6 @@
 import { hash } from 'bcryptjs'
 import { expect, describe, it, beforeEach } from 'vitest'
-import { InMemoryUsersRepository } from '../repositories/inMemory/in-memory-user-repository'
+import { InMemoryUsersRepository } from '@/repositories/inMemory/in-memory-user-repository'
 import { AuthenticateService } from './authenticate.service'
 import { InvalidCredentialsError } from './errors/invalid-credentials-error'
 
