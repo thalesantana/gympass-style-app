@@ -10,7 +10,7 @@
 - [x] It must be possible for the user to search for nearby gyms (10km);
 - [x] It must be possible for the user to search for gyms by name;
 - [x] It must be possible for the user to check-in to a gym;
-- [ ] It must be possible to validate a user's check-in;
+- [x] It must be possible to validate a user's check-in;
 - [x] It must be possible to register a gym;
 
 ## Business rules 
