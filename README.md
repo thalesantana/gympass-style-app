@@ -7,7 +7,7 @@
 - [x] It must be possible to obtain the profile of a logged-in user;
 - [x] It must be possible to obtain the number of check-ins performed by the logged-in user;
 - [x] It must be possible for the user to obtain his/her check-in history;
-- [ ] It must be possible for the user to search for nearby gyms;
+- [x] It must be possible for the user to search for nearby gyms (10km);
 - [x] It must be possible for the user to search for gyms by name;
 - [x] It must be possible for the user to check-in to a gym;
 - [ ] It must be possible to validate a user's check-in;
