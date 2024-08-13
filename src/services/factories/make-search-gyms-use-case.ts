@@ -1,9 +1,9 @@
-import { GetUserMetricsService } from '../getUserMetrics.service'
-import { PrismaCheckInsRepository } from '@/repositories/prisma/prisma-check-ins-repository'
+import { SearchGymService } from '../searchGyms.service'
+import { PrismaGymsRepository } from '@/repositories/prisma/prisma-gyms-repository'
 
 export function makeSearchGymsUseCase() {
-  const checkInsRepository = new PrismaCheckInsRepository()
-  const useCase = new GetUserMetricsService(checkInsRepository)
+  const gymsRepository = new PrismaGymsRepository()
+  const useCase = new SearchGymService(gymsRepository)
   
   return useCase
 }
