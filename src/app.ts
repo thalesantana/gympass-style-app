@@ -37,5 +37,5 @@ app.setErrorHandler((error, _, reply) => {
     console.log(error)
   }
 
-  return reply.status(500).send('internal server error.')
+  return reply.status(error.statusCode ? error.statusCode : 500).send(error.message ? error.message : 'internal server error.')
 })

@@ -18,17 +18,18 @@ describe('Authenticate (e2e)', () => {
         name: 'John Doe',
         email: 'johndoe@example.com',
         password: '123456',
+        isAdmin: false
       })
 
-      const response = await request(app.server).post('/sessions').send({
-        email: 'johndoe@example.com',
-        password: '123456',
-      })
+    const response = await request(app.server).post('/sessions').send({
+      email: 'johndoe@example.com',
+      password: '123456',
+    })
 
 
-      expect(response.statusCode).toEqual(200)
-      expect(response.body).toEqual({
-        token: expect.any(String),
-      })
+    expect(response.statusCode).toEqual(200)
+    expect(response.body).toEqual({
+      token: expect.any(String),
+    })
   })
 })

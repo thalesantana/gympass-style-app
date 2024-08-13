@@ -1,5 +1,8 @@
 export class ResourseNotFoundError extends Error {
+  statusCode: number;
+
   constructor() {
-    super('resourse not found.');
+    super('Resourse not found.');
+    this.statusCode = 404;
   }
 }
