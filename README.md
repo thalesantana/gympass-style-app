@@ -15,7 +15,7 @@ npm install -g pnpm
 In your terminal, clone the repository using the command:
 
 ```bash
-git clone [https://github.com/thalesantana/ecommerce-discount.git](https://github.com/thalesantana/gympass-style-app.git)
+git clone https://github.com/thalesantana/gympass-style-app.git
 ```
 
 ## Installing Dependencies
