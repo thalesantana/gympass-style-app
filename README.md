@@ -1,7 +1,7 @@
 # GymPass-style application.
 
 ## Description
-A project applying SOLID principles and Test-Driven Development (TDD), inspired by the well-known application Gympass (Wellhub). This project utilizes TypeScript, Node.js, Fastify, Prisma, and Vitest to ensure a robust and scalable architecture, focusing on maintainability and efficient testing practices. The combination of these technologies enables the development of a high-performance API with a strong foundation in software engineering best practices.
+A project applying SOLID principles and Test-Driven Development (TDD), inspired by the well-known application Gympass (Wellhub). This project delivers a back-end API using TypeScript, Node.js, Fastify, Prisma, and Vitest, with a focus on maintainability and efficient testing practices. It also implements a JWT (JSON Web Token) authentication system, ensuring secure and reliable user authentication, while leveraging these technologies to build a high-performance API grounded in software engineering best practices.
 
 ## Requirements
 
