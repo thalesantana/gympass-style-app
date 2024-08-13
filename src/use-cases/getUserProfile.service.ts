@@ -1,14 +1,7 @@
 import { UsersRepository } from '@/repositories/users-repository';
-import { User } from '@prisma/client';
 import { ResourseNotFoundError } from './errors/resouse-not-found-error';
-
-interface GetUserProfileRequestType {
-  userId: string;
-}
-
-interface GetUserProfileResponseType {
-  user: User
-}
+import { GetUserProfileRequestType } from './types/request/GetUserProfileRequestType';
+import { GetUserProfileResponseType } from './types/response/GetUserProfileResponseType';
 
 export class GetUserProfileService {
   constructor(

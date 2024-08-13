@@ -1,21 +1,11 @@
-import { CheckIn } from '@prisma/client';
 import { CheckInsRepository } from '@/repositories/check-ins-repository';
 import { GymsRepository } from '@/repositories/gyms-repository';
 import { ResourseNotFoundError } from './errors/resouse-not-found-error';
 import { getDistanceBetweenCoordinates } from './utils/get-distance-between-coordenates';
 import { MaxDistanceError } from './errors/max-distance-error';
 import { MaxNumberOfCheckInsError } from './errors/max-number-of-check-ins-error';
-
-interface CheckInRequestType {
-  userId: string;
-  gymId: string;
-  userLatitude: number;
-  userLongitude: number;
-}
-
-interface CheckInResponseType {
-  checkIn: CheckIn
-}
+import { CheckInRequestType } from './types/request/CheckInRequestType';
+import { CheckInResponseType } from './types/response/CheckInResponseType';
 
 export class CheckInService {
   constructor(

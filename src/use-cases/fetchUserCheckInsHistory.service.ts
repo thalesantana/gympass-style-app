@@ -1,14 +1,6 @@
-import { CheckIn } from '@prisma/client';
 import { CheckInsRepository } from '@/repositories/check-ins-repository';
-
-interface FetchUserCheckInsRequestType {
-  userId: string;
-  page: number;
-}
-
-interface FetchUserCheckInsResponseType {
-  checkIns: CheckIn[]
-}
+import { FetchUserCheckInsRequestType } from './types/response/FetchUserCheckInsRequestType';
+import { FetchUserCheckInsResponseType } from './types/request/FetchUserCheckInsResponseType';
 
 export class FetchUserCheckInsHistoryService {
   constructor(

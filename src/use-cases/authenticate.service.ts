@@ -1,16 +1,8 @@
+import { compare } from 'bcryptjs';
 import { UsersRepository } from '@/repositories/users-repository';
 import { InvalidCredentialsError } from './errors/invalid-credentials-error';
-import { compare } from 'bcryptjs';
-import { User } from '@prisma/client';
-
-interface AuthenticateRequestType {
-  email: string;
-  password: string;
-}
-
-interface AuthenticateResponseType {
-  user: User
-}
+import { AuthenticateRequestType } from './types/request/AuthenticateRequestType';
+import { AuthenticateResponseType } from './types/response/AuthenticateResponseType';
 
 export class AuthenticateService {
   constructor(

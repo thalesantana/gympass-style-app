@@ -1,14 +1,7 @@
 import { GymsRepository } from '@/repositories/gyms-repository';
-import { Gym } from '@prisma/client';
+import { FetchNearbyGymsRequestType } from './types/request/FetchNearbyGymsRequestType';
+import { FetchNearbyGymsResponseType } from './types/response/FetchNearbyGymsResponseType';
 
-interface FetchNearbyGymsRequestType {
-  userLatitude: number;
-  userLongitude: number;
-}
-
-interface FetchNearbyGymsResponseType {
-  gyms: Gym[];
-}
 export class FetchNearbyGymsService{
   constructor(private gymsRepository: GymsRepository){}
   async SearchManyGyms({
@@ -22,5 +15,4 @@ export class FetchNearbyGymsService{
     
     return { gyms }
   }
-
 }

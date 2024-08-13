@@ -1,17 +1,7 @@
 import { GymsRepository } from '@/repositories/gyms-repository';
-import { Gym } from '@prisma/client';
+import { CreateGymRequestType } from './types/request/CreateGymRequestType';
+import { CreateGymResponseType } from './types/response/CreateGymResponseType';
 
-interface CreateGymRequestType {
-  title: string;
-  description?: string | null;
-  phone: string | null;
-  latitude: number;
-  longitude: number;
-}
-
-interface CreateGymResponseType {
-  gym: Gym;
-}
 export class CreateGymService{
   constructor(private gymsRepository: GymsRepository){}
   async createGym({
@@ -31,5 +21,4 @@ export class CreateGymService{
 
     return { gym }
   }
-
 }

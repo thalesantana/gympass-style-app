@@ -1,12 +1,6 @@
 import { CheckInsRepository } from '@/repositories/check-ins-repository';
-
-interface GetUserMetricsRequestType {
-  userId: string;
-}
-
-interface GetUserMetricsResponseType {
-  checkInsCount: number;
-}
+import { GetUserMetricsRequestType } from './types/request/GetUserMetricsRequestType';
+import { GetUserMetricsResponseType } from './types/response/GetUserMetricsResponseType';
 
 export class GetUserMetricsService {
   constructor(

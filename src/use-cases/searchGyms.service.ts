@@ -1,14 +1,7 @@
 import { GymsRepository } from '@/repositories/gyms-repository';
-import { Gym } from '@prisma/client';
+import { SearchGymRequestType } from './types/request/SearchGymRequestType';
+import { SearchGymResponseType } from './types/response/SearchGymResponseType';
 
-interface SearchGymRequestType {
-  query: string;
-  page: number;
-}
-
-interface SearchGymResponseType {
-  gyms: Gym[];
-}
 export class SearchGymService{
   constructor(private gymsRepository: GymsRepository){}
   async SearchManyGyms({
@@ -19,5 +12,4 @@ export class SearchGymService{
     
     return { gyms }
   }
-
 }

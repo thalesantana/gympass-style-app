@@ -1,16 +1,9 @@
-import { CheckIn } from '@prisma/client';
+import dayjs from 'dayjs';
 import { CheckInsRepository } from '@/repositories/check-ins-repository';
 import { ResourseNotFoundError } from './errors/resouse-not-found-error';
-import dayjs from 'dayjs';
 import { LateCheckInValidationrror } from './errors/late-check-in-validation-error';
-
-interface ValidateCheckInRequestType {
-  checkInId: string;
-}
-
-interface ValidateCheckInResponseType {
-  checkIn: CheckIn
-}
+import { ValidateCheckInRequestType } from './types/request/ValidateCheckInRequestType';
+import { ValidateCheckInResponseType } from './types/response/ValidateCheckInResponseType';
 
 export class ValidateCheckInService {
   constructor(
