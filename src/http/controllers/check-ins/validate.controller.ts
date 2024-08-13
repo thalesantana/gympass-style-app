@@ -1,6 +1,6 @@
 import { FastifyRequest, FastifyReply } from 'fastify'
 import { z } from 'zod'
-import { makeValidateCheckInUseCase } from '@/services/factories/make-validate-check-in-use-case'
+import { makeValidateCheckInUseCase } from '@/use-cases/factories/make-validate-check-in-use-case'
 
 export async function validate ( request: FastifyRequest, reply: FastifyReply ) {
   
