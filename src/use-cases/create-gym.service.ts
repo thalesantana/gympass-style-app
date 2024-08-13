@@ -2,8 +2,8 @@ import { GymsRepository } from '@/repositories/gyms-repository';
 import { CreateGymRequestType } from './types/request/CreateGymRequestType';
 import { CreateGymResponseType } from './types/response/CreateGymResponseType';
 
-export class CreateGymService{
-  constructor(private gymsRepository: GymsRepository){}
+export class CreateGymService {
+  constructor(private gymsRepository: GymsRepository) {}
   async createGym({
     title,
     description,
@@ -17,8 +17,8 @@ export class CreateGymService{
       phone,
       latitude,
       longitude,
-    })
+    });
 
-    return { gym }
+    return { gym };
   }
 }

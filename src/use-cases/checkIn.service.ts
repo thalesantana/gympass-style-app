@@ -10,19 +10,19 @@ import { CheckInResponseType } from './types/response/CheckInResponseType';
 export class CheckInService {
   constructor(
     private checkInsRepository: CheckInsRepository,
-    private gymsRepository: GymsRepository
+    private gymsRepository: GymsRepository,
   ) {}
 
   async execute({
-    userId, 
+    userId,
     gymId,
     userLatitude,
-    userLongitude
+    userLongitude,
   }: CheckInRequestType): Promise<CheckInResponseType> {
-    const gym = await this.gymsRepository.findById(gymId)
+    const gym = await this.gymsRepository.findById(gymId);
 
-    if(!gym){
-      throw new ResourseNotFoundError()
+    if (!gym) {
+      throw new ResourseNotFoundError();
     }
 
     // calculate distance between user and gym
@@ -34,29 +34,29 @@ export class CheckInService {
       {
         latitude: userLatitude,
         longitude: userLongitude,
-      }
-    )
+      },
+    );
 
-    const MAX_DISTANCE_IN_KILOMETERS = 0.1
+    const MAX_DISTANCE_IN_KILOMETERS = 0.1;
 
-    if( distance > MAX_DISTANCE_IN_KILOMETERS) {
+    if (distance > MAX_DISTANCE_IN_KILOMETERS) {
       throw new MaxDistanceError();
     }
 
     const checkInOnSameDay = await this.checkInsRepository.findByUserIdOnDate(
       userId,
       new Date(),
-    )
+    );
 
-    if(checkInOnSameDay) {
-      throw new MaxNumberOfCheckInsError();  
+    if (checkInOnSameDay) {
+      throw new MaxNumberOfCheckInsError();
     }
 
     const checkIn = await this.checkInsRepository.create({
       user_id: userId,
-      gym_id: gymId
-    })
+      gym_id: gymId,
+    });
 
-    return { checkIn }
+    return { checkIn };
   }
 }

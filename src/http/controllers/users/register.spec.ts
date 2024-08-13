@@ -1,26 +1,24 @@
-import { app } from '@/app'
-import request from 'supertest'
-import { beforeAll, afterAll, describe, expect, it } from 'vitest'
+import { app } from '@/app';
+import request from 'supertest';
+import { beforeAll, afterAll, describe, expect, it } from 'vitest';
 
 describe('Register (e2e)', () => {
   beforeAll(async () => {
-    await app.ready()
-  })
+    await app.ready();
+  });
 
   afterAll(async () => {
-    await app.close()
-  })
-  
-  it('should be able to register', async () => {
-    const response = await request(app.server)
-      .post('/users')
-      .send({
-        name: 'John Doe',
-        email: 'johndoe@example.com',
-        password: '123456',
-        isAdmin: false
-      })
+    await app.close();
+  });
 
-      expect(response.statusCode).toEqual(201)
-  })
-})
+  it('should be able to register', async () => {
+    const response = await request(app.server).post('/users').send({
+      name: 'John Doe',
+      email: 'johndoe@example.com',
+      password: '123456',
+      isAdmin: false,
+    });
+
+    expect(response.statusCode).toEqual(201);
+  });
+});

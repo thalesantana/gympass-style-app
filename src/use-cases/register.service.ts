@@ -4,17 +4,17 @@ import { CreateUserResponseType } from '@/use-cases/types/response/CreateUserRes
 import { hash } from 'bcryptjs';
 import { ResgisterRequestType } from './types/request/registerRequestType';
 
-export class RegisterService{
-  constructor(private usersRepository: UsersRepository){}
+export class RegisterService {
+  constructor(private usersRepository: UsersRepository) {}
   async createUser({
     name,
     email,
     password,
-    role
+    role,
   }: ResgisterRequestType): Promise<CreateUserResponseType> {
-    const password_hash = await hash(password, 6)
-    
-    const userWithSameEmail = await this.usersRepository.findByEmail(email)
+    const password_hash = await hash(password, 6);
+
+    const userWithSameEmail = await this.usersRepository.findByEmail(email);
 
     if (userWithSameEmail) {
       throw new UserAlreadyExistsError();
@@ -24,9 +24,9 @@ export class RegisterService{
       name,
       email,
       password_hash,
-      role
-    })
+      role,
+    });
 
-    return { user }
+    return { user };
   }
 }

@@ -6,11 +6,11 @@ import { verifyJWT } from '@/http/middlewares/verify-jwt';
 import { refresh } from './refresh.controller';
 
 export async function usersRoutes(app: FastifyInstance) {
-  app.post('/users', register)
-  app.post('/sessions', authenticate)
+  app.post('/users', register);
+  app.post('/sessions', authenticate);
 
-  app.patch('/token/refresh', refresh)
+  app.patch('/token/refresh', refresh);
 
   /**authenticated */
-  app.get('/me', { onRequest: [verifyJWT] } ,profile)
+  app.get('/me', { onRequest: [verifyJWT] }, profile);
 }

@@ -3,16 +3,17 @@ import { FetchUserCheckInsRequestType } from './types/response/FetchUserCheckIns
 import { FetchUserCheckInsResponseType } from './types/request/FetchUserCheckInsResponseType';
 
 export class FetchUserCheckInsHistoryService {
-  constructor(
-    private checkInsRepository: CheckInsRepository,
-  ) {}
+  constructor(private checkInsRepository: CheckInsRepository) {}
 
   async findManyByUserId({
-    userId, 
+    userId,
     page,
   }: FetchUserCheckInsRequestType): Promise<FetchUserCheckInsResponseType> {
-    const checkIns = await this.checkInsRepository.findManyByUserId(userId, page);
+    const checkIns = await this.checkInsRepository.findManyByUserId(
+      userId,
+      page,
+    );
 
-    return { checkIns }
+    return { checkIns };
   }
 }

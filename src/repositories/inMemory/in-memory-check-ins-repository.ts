@@ -3,10 +3,9 @@ import { randomUUID } from 'node:crypto';
 import { CheckInsRepository } from '../check-ins-repository';
 import dayjs from 'dayjs';
 
-
 export class InMemoryCheckInsRepository implements CheckInsRepository {
   public items: CheckIn[] = [];
-  
+
   async create(data: Prisma.CheckInUncheckedCreateInput) {
     const checkIn = {
       id: randomUUID(),
@@ -14,15 +13,15 @@ export class InMemoryCheckInsRepository implements CheckInsRepository {
       gym_id: data.gym_id,
       validated_at: data.validated_at ? new Date(data.validated_at) : null,
       created_at: new Date(),
-    }
+    };
 
-    this.items.push(checkIn)
+    this.items.push(checkIn);
 
-    return checkIn
+    return checkIn;
   }
 
   async findById(id: string) {
-    const checkIn =  this.items.find((item) => item.id === id)
+    const checkIn = this.items.find((item) => item.id === id);
 
     if (!checkIn) {
       return null;
@@ -31,41 +30,41 @@ export class InMemoryCheckInsRepository implements CheckInsRepository {
     return checkIn;
   }
   async findByUserIdOnDate(userId: string, date: Date) {
-    const startOfTheDay = dayjs(date).startOf('date')
-    const endOfTheDay = dayjs(date).endOf('date')
-    
-    const checkInONsameDate = this.items.find((checkIn) =>  {
-      const checkInDate = dayjs(checkIn.created_at)    
-      const isOnSameDate = 
-          checkInDate.isAfter(startOfTheDay) && checkInDate.isBefore(endOfTheDay)
+    const startOfTheDay = dayjs(date).startOf('date');
+    const endOfTheDay = dayjs(date).endOf('date');
 
-      return checkIn.user_id === userId && isOnSameDate
-    })
+    const checkInONsameDate = this.items.find((checkIn) => {
+      const checkInDate = dayjs(checkIn.created_at);
+      const isOnSameDate =
+        checkInDate.isAfter(startOfTheDay) && checkInDate.isBefore(endOfTheDay);
 
-    if(!checkInONsameDate) {
-      return null
+      return checkIn.user_id === userId && isOnSameDate;
+    });
+
+    if (!checkInONsameDate) {
+      return null;
     }
 
     return checkInONsameDate;
   }
 
   async findManyByUserId(userId: string, page: number) {
-    return this.items.filter((item) => item.user_id === userId)
-    .slice((page-1) * 20, page * 20)
+    return this.items
+      .filter((item) => item.user_id === userId)
+      .slice((page - 1) * 20, page * 20);
   }
 
   async countByUserId(userId: string) {
-    return this.items.filter((item) => item.user_id === userId).length
+    return this.items.filter((item) => item.user_id === userId).length;
   }
 
   async save(checkIn: CheckIn) {
-      const checkInIndex = this.items.findIndex((item) => item.id === checkIn.id)
+    const checkInIndex = this.items.findIndex((item) => item.id === checkIn.id);
 
-      if (checkInIndex >= 0) {
-        this.items[checkInIndex] = checkIn;
-      }
+    if (checkInIndex >= 0) {
+      this.items[checkInIndex] = checkIn;
+    }
 
-      return checkIn;
+    return checkIn;
   }
-
 }
