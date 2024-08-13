@@ -2,9 +2,9 @@ version: '3'
 
 services:
   gympass-style-app:
-    image: 'bitnami/postgresql:latest'
+    image: 'bitnami/postgresql'
     ports: 
-      - 5432:5432
+      - 5434:5432
     environment:
       - POSTGRESQL_USERNAME=docker
       - POSTGRESQL_PASSWORD=docker
