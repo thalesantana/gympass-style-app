@@ -1,6 +1,6 @@
-import { expect, describe, it, beforeEach } from 'vitest';
 import { InMemoryGymsRepository } from '@/repositories/inMemory/in-memory-gyms-repository';
-import { CreateGymService } from './create-gym.service';
+import { beforeEach, describe, expect, it } from 'vitest';
+import { CreateGymService } from './create-gym';
 
 let usersRepository: InMemoryGymsRepository;
 let sut: CreateGymService;

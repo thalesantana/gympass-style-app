@@ -1,4 +1,4 @@
-import { SearchGymService } from '../searchGyms.service';
+import { SearchGymService } from '../search-gyms';
 import { PrismaGymsRepository } from '@/repositories/prisma/prisma-gyms-repository';
 
 export function makeSearchGymsUseCase() {

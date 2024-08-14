@@ -1,4 +1,4 @@
-import { FastifyRequest, FastifyReply } from 'fastify';
+import { FastifyReply, FastifyRequest } from 'fastify';
 import { z } from 'zod';
 import { makeValidateCheckInUseCase } from '@/use-cases/factories/make-validate-check-in-use-case';
 

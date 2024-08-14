@@ -1,4 +1,4 @@
-import { FastifyRequest, FastifyReply } from 'fastify';
+import { FastifyReply, FastifyRequest } from 'fastify';
 import { makeGetUserMetricsProfileUseCase } from '@/use-cases/factories/make-get-user-metrics-use-case';
 
 export async function metrics(request: FastifyRequest, reply: FastifyReply) {

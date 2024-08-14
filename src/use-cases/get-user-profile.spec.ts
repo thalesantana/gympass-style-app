@@ -1,8 +1,8 @@
-import { hash } from 'bcryptjs';
-import { expect, describe, it, beforeEach } from 'vitest';
 import { InMemoryUsersRepository } from '@/repositories/inMemory/in-memory-user-repository';
-import { GetUserProfileService } from './getUserProfile.service';
+import { hash } from 'bcryptjs';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { ResourseNotFoundError } from './errors/resouse-not-found-error';
+import { GetUserProfileService } from './get-user-profile';
 
 let usersRepository: InMemoryUsersRepository;
 let sut: GetUserProfileService;

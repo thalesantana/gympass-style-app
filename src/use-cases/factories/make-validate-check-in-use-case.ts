@@ -1,4 +1,4 @@
-import { ValidateCheckInService } from '../validateCheckIn.service';
+import { ValidateCheckInService } from '../validate-check-in';
 import { PrismaCheckInsRepository } from '@/repositories/prisma/prisma-check-ins-repository';
 
 export function makeValidateCheckInUseCase() {

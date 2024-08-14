@@ -1,6 +1,6 @@
 import { app } from '@/app';
 import request from 'supertest';
-import { beforeAll, afterAll, describe, expect, it } from 'vitest';
+import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
 describe('Register (e2e)', () => {
   beforeAll(async () => {

@@ -1,5 +1,5 @@
-import { Prisma, Gym } from '@prisma/client';
-import { findManyNearbyParams, GymsRepository } from '../gyms-repository.js';
+import { Gym, Prisma } from '@prisma/client';
+import { GymsRepository, findManyNearbyParams } from '../gyms-repository.js';
 import { prisma } from '@/lib/prisma.js';
 
 export class PrismaGymsRepository implements GymsRepository {

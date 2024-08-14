@@ -1,8 +1,8 @@
-import { vi, expect, describe, it, beforeEach, afterEach } from 'vitest';
 import { InMemoryCheckInsRepository } from '@/repositories/inMemory/in-memory-check-ins-repository';
-import { ValidateCheckInService } from './validateCheckIn.service';
-import { ResourseNotFoundError } from './errors/resouse-not-found-error';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { LateCheckInValidationrror } from './errors/late-check-in-validation-error';
+import { ResourseNotFoundError } from './errors/resouse-not-found-error';
+import { ValidateCheckInService } from './validate-check-in';
 
 let checkInsRepository: InMemoryCheckInsRepository;
 let sut: ValidateCheckInService;
