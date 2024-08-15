@@ -4,4 +4,5 @@ export interface CreateGymRequestType {
   phone: string | null;
   latitude: number;
   longitude: number;
+  adminId: string;
 }

@@ -1,7 +1,7 @@
-import { FastifyReply, FastifyRequest } from 'fastify';
-import { z } from 'zod';
-import { InvalidCredentialsError } from '@/use-cases/errors/invalid-credentials-error';
-import { makeAuthenticateUseCase } from '@/use-cases/factories/make-authenticate-use-case';
+import { InvalidCredentialsError } from "@/use-cases/errors/invalid-credentials-error";
+import { makeAuthenticateUseCase } from "@/use-cases/factories/make-authenticate-use-case";
+import { FastifyReply, FastifyRequest } from "fastify";
+import { z } from "zod";
 
 export async function authenticate(
   request: FastifyRequest,
@@ -40,14 +40,14 @@ export async function authenticate(
       {
         sign: {
           sub: user.id,
-          expiresIn: '7d',
+          expiresIn: "7d",
         },
       },
     );
 
     return reply
-      .setCookie('refreshToken', refreshToken, {
-        path: '/',
+      .setCookie("refreshToken", refreshToken, {
+        path: "/",
         secure: true,
         sameSite: true,
         httpOnly: true,

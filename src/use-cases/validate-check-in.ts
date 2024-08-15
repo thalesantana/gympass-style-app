@@ -1,9 +1,9 @@
-import dayjs from 'dayjs';
-import { CheckInsRepository } from '@/repositories/check-ins-repository';
-import { ResourseNotFoundError } from './errors/resouse-not-found-error';
-import { LateCheckInValidationrror } from './errors/late-check-in-validation-error';
-import { ValidateCheckInRequestType } from './types/request/ValidateCheckInRequestType';
-import { ValidateCheckInResponseType } from './types/response/ValidateCheckInResponseType';
+import { CheckInsRepository } from "@/repositories/check-ins-repository";
+import dayjs from "dayjs";
+import { LateCheckInValidationrror } from "./errors/late-check-in-validation-error";
+import { ResourseNotFoundError } from "./errors/resouse-not-found-error";
+import { ValidateCheckInRequestType } from "./types/request/ValidateCheckInRequestType";
+import { ValidateCheckInResponseType } from "./types/response/ValidateCheckInResponseType";
 
 export class ValidateCheckInService {
   constructor(private checkInsRepository: CheckInsRepository) {}
@@ -19,7 +19,7 @@ export class ValidateCheckInService {
 
     const distanceInMinutesCheckInCreation = dayjs(new Date()).diff(
       checkIn.created_at,
-      'minutes',
+      "minutes",
     );
 
     if (distanceInMinutesCheckInCreation > 20) {

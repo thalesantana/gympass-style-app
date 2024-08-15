@@ -1,6 +1,6 @@
-import { Gym, Prisma } from '@prisma/client';
-import { GymsRepository, findManyNearbyParams } from '../gyms-repository.js';
-import { prisma } from '@/lib/prisma.js';
+import { prisma } from "@/lib/prisma.js";
+import { Gym, Prisma } from "@prisma/client";
+import { GymsRepository, findManyNearbyParams } from "../gyms-repository.js";
 
 export class PrismaGymsRepository implements GymsRepository {
   async findById(id: string) {
@@ -32,7 +32,7 @@ export class PrismaGymsRepository implements GymsRepository {
     `;
     return gyms;
   }
-  async create(data: Prisma.GymCreateInput) {
+  async create(data: Prisma.GymUncheckedCreateInput) {
     const gym = await prisma.gym.create({
       data,
     });

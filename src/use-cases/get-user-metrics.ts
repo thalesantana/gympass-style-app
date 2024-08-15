@@ -1,6 +1,6 @@
-import { CheckInsRepository } from '@/repositories/check-ins-repository';
-import { GetUserMetricsRequestType } from './types/request/GetUserMetricsRequestType';
-import { GetUserMetricsResponseType } from './types/response/GetUserMetricsResponseType';
+import { CheckInsRepository } from "@/repositories/check-ins-repository";
+import { GetUserMetricsRequestType } from "./types/request/GetUserMetricsRequestType";
+import { GetUserMetricsResponseType } from "./types/response/GetUserMetricsResponseType";
 
 export class GetUserMetricsService {
   constructor(private checkInsRepository: CheckInsRepository) {}

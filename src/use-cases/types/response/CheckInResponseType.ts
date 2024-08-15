@@ -1,4 +1,4 @@
-import { CheckIn } from '@prisma/client';
+import { CheckIn } from "@prisma/client";
 
 export interface CheckInResponseType {
   checkIn: CheckIn;

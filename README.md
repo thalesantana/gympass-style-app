@@ -1,6 +1,7 @@
 # GymPass-style application.
 
 ## Description
+
 A project applying SOLID principles and Test-Driven Development (TDD), inspired by the well-known application Gympass (Wellhub). This project delivers a back-end API using TypeScript, Node.js, Fastify, Prisma, and Vitest, with a focus on maintainability and efficient testing practices. It also implements a JWT (JSON Web Token) authentication system, ensuring secure and reliable user authentication, while leveraging these technologies to build a high-performance API grounded in software engineering best practices.
 
 ## Requirements
@@ -10,6 +11,7 @@ Before starting, ensure that Node.js, pnpm and docker are installed on your mach
 ```bash
 npm install -g pnpm
 ```
+
 ## Cloning the Repository
 
 In your terminal, clone the repository using the command:
@@ -19,17 +21,21 @@ git clone https://github.com/thalesantana/gympass-style-app.git
 ```
 
 ## Installing Dependencies
+
 Navigate to the project directory:
 
 ```bash
 cd gympass-style-app
 ```
+
 ## Install the project dependencies with pnpm:
 
 ```bash
 pnpm install
 ```
+
 ## Create env file
+
 Copy the file `env.example` and rename to `.env`
 
 ## Create Database
@@ -39,17 +45,21 @@ docker compose up -d
 ```
 
 ## Generate Prisma
+
 ```bash
 npx prisma generate
 ```
 
 ## Starting the Project
+
 To start the project in development mode, use the command:
 
 ```bash
 npm run start:dev
 ```
+
 ## Technologies Used
+
 - TypeScript: A superset of JavaScript that adds static typing.
 - Node.js: A JavaScript runtime built on Chrome's V8 engine, used for building scalable network applications.
 - Fastify: A web framework for Node.js focused on speed and low overhead, ideal for building APIs.
@@ -69,10 +79,10 @@ npm run start:dev
 - [x] It must be possible to validate a user's check-in;
 - [x] It must be possible to register a gym;
 
-## Business rules 
+## Business rules
 
 - [x] The user must not be able to register with a duplicate email;
-- [x] The user cannot check-in twice on the same day; 
+- [x] The user cannot check-in twice on the same day;
 - [x] The user cannot check in if he/she is not close (100m) to the gym;
 - [x] Check-in can only be validated up to 20 minutes after being created;
 - [x] Check-in can only be validated by administrators;

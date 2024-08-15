@@ -1,22 +1,32 @@
-import { FastifyInstance } from 'fastify';
+import { FastifyInstance } from "fastify";
 
-import { verifyJWT } from '@/http/middlewares/verify-jwt';
-import { create } from './create.controller';
-import { validate } from './validate.controller';
-import { history } from './history.controller';
-import { metrics } from './metrics.controller';
-import { verifyUserRule } from '@/http/middlewares/verify-user-role';
+import { verifyJWT } from "@/http/middlewares/verify-jwt";
+import { verifyUserRule } from "@/http/middlewares/verify-user-role";
+import { create } from "./create.controller";
+import { history } from "./history.controller";
+import { metrics } from "./metrics.controller";
+import { pending } from "./pending.controller";
+import { validate } from "./validate.controller";
 
 export async function checkInsRoutes(app: FastifyInstance) {
-  app.addHook('onRequest', verifyJWT);
+  app.addHook("onRequest", verifyJWT);
 
-  app.post('/gyms/:gymId/check-ins', create);
-
-  app.get('/check-ins/history', history);
-  app.get('/check-ins/metrics', metrics);
+  app.get(
+    "/check-ins/:gymId/pending",
+    { onRequest: [verifyUserRule("ADMIN")] },
+    pending,
+  );
   app.patch(
-    '/check-ins/:checkInId/validate',
-    { onRequest: [verifyUserRule('ADMIN')] },
+    "/check-ins/:checkInId/validate",
+    { onRequest: [verifyUserRule("ADMIN")] },
     validate,
+  );
+
+  app.get("/check-ins/user/history", history);
+  app.get("/check-ins/user/metrics", metrics);
+  app.post(
+    "/check-ins/user/create/:gymId",
+    { onRequest: [verifyUserRule("MEMBER")] },
+    create,
   );
 }

@@ -1,13 +1,14 @@
-import { getDistanceBetweenCoordinates } from '@/utils/get-distance-between-coordenates';
-import { Gym, Prisma } from '@prisma/client';
-import { randomUUID } from 'crypto';
-import { GymsRepository, findManyNearbyParams } from '../gyms-repository';
+import { getDistanceBetweenCoordinates } from "@/utils/get-distance-between-coordenates";
+import { Gym, Prisma } from "@prisma/client";
+import { randomUUID } from "crypto";
+import { GymsRepository, findManyNearbyParams } from "../gyms-repository";
 
 export class InMemoryGymsRepository implements GymsRepository {
   public items: Gym[] = [];
-  async create(data: Prisma.GymCreateInput) {
+  async create(data: Prisma.GymUncheckedCreateInput) {
     const gym = {
       id: data.id ?? randomUUID(),
+      admin_id: data.admin_id,
       title: data.title,
       description: data.description ?? null,
       phone: data.phone ?? null,

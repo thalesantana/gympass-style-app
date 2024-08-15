@@ -1,7 +1,7 @@
-import { GetUserProfileRequestType } from './types/request/GetUserProfileRequestType';
-import { GetUserProfileResponseType } from './types/response/GetUserProfileResponseType';
-import { ResourseNotFoundError } from './errors/resouse-not-found-error';
-import { UsersRepository } from '@/repositories/users-repository';
+import { UsersRepository } from "@/repositories/users-repository";
+import { ResourseNotFoundError } from "./errors/resouse-not-found-error";
+import { GetUserProfileRequestType } from "./types/request/GetUserProfileRequestType";
+import { GetUserProfileResponseType } from "./types/response/GetUserProfileResponseType";
 
 export class GetUserProfileService {
   constructor(private usersRepository: UsersRepository) {}

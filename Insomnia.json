@@ -1,1 +1,344 @@
-{"_type":"export","__export_format":4,"__export_date":"2024-08-14T18:48:56.908Z","__export_source":"insomnia.desktop.app:v9.3.3","resources":[{"_id":"req_84ae415fcac1429c974cdda16db9ec50","parentId":"wrk_032c6ce28820408c8489e1045daad512","modified":1723580115407,"created":1677437965899,"url":"http://localhost:3333/users","name":"Create User","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n\t\"name\": \"Thales Santana\",\n\t\"email\": \"admin@gmail.com\",\n\t\"password\": \"123456\",\n\t\"isAdmin\": true\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json"}],"authentication":{},"metaSortKey":-1678123456893,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"wrk_032c6ce28820408c8489e1045daad512","parentId":null,"modified":1723569662943,"created":1723569662943,"name":"gympass-style-app-api","description":"","scope":"collection","_type":"workspace"},{"_id":"req_09c3f49bbd134a089ca757486ed1a725","parentId":"wrk_032c6ce28820408c8489e1045daad512","modified":1723588470911,"created":1677789216671,"url":"http://localhost:3333/sessions","name":"Authenticate","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n\t\"email\": \"admin@gmail.com\",\n\t\"password\": \"123456\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json"}],"authentication":{},"metaSortKey":-1678123456843,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_f7243ddaaed54e7e96a5754bae8a240a","parentId":"wrk_032c6ce28820408c8489e1045daad512","modified":1723659741855,"created":1678130302602,"url":"http://localhost:3333/me","name":"Profile","description":"","method":"GET","body":{},"parameters":[],"headers":[],"authentication":{"type":"bearer","token":"{% response 'body', 'req_09c3f49bbd134a089ca757486ed1a725', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"},"metaSortKey":-1678123456836.75,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_c278b6af20df484b804190fa5b7d647e","parentId":"wrk_032c6ce28820408c8489e1045daad512","modified":1723659773151,"created":1723572471431,"url":"http://localhost:3333/gyms","name":"Create Gym","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n\t\"title\": \"Javascript Gym\",\n\t\"description\": \"Some Description\",\n\t\"phone\": \"31999999999\",\n\t\"latitude\": -27.1225285,\n\t\"longitude\": -43.9353341\n}"},"parameters":[],"headers":[{"id":"pair_1b8d2752534e4cde83a52239fc8b7368","name":"Content-Type","value":"application/json","description":"","disabled":false}],"authentication":{"type":"bearer","token":"{% response 'body', 'req_09c3f49bbd134a089ca757486ed1a725', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"},"metaSortKey":-1678123456830.5,"isPrivate":false,"pathParameters":[],"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_93719001de514adab06608dc57ee08f7","parentId":"wrk_032c6ce28820408c8489e1045daad512","modified":1723659779789,"created":1678123456793,"url":"http://localhost:3333/gyms/search","name":"Get All Gyms","description":"","method":"GET","body":{},"parameters":[{"id":"pair_5d704227c42d479fa781f05b628424dc","name":"query","value":"Javascript","description":"","disabled":false}],"headers":[],"authentication":{"type":"bearer","token":"{% response 'body', 'req_09c3f49bbd134a089ca757486ed1a725', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"},"metaSortKey":-1678123456824.25,"isPrivate":false,"pathParameters":[],"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_88f32f37636c411c86aae9d31fa585fb","parentId":"wrk_032c6ce28820408c8489e1045daad512","modified":1723659792155,"created":1678123456789,"url":"http://localhost:3333/gyms/02092317-d0e2-44c4-b025-e01f378743c1/check-ins","name":"Create Check-in","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n\t\"latitude\": -27.1225294,\n\t\"longitude\": -43.9353343\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json","id":"pair_d7069a49eaf348e89ec90a229a2698f6"},{"name":"Authorization","value":"Bearer {token}","id":"pair_a87c754011c94f419672350881237b76","disabled":true}],"authentication":{"type":"bearer","token":"{% response 'body', 'req_09c3f49bbd134a089ca757486ed1a725', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"},"metaSortKey":-1678123456818,"isPrivate":false,"pathParameters":[],"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_d2c1217f724742429cd0a055951125a1","parentId":"wrk_032c6ce28820408c8489e1045daad512","modified":1723661064758,"created":1678123456791,"url":"{{ _.base_url }}/check-ins/metrics","name":"Check-in Metrics","description":"","method":"GET","body":{},"parameters":[],"headers":[{"name":"Authorization","value":"Bearer {token}","id":"pair_cca4b5397428440582ad1b6a68b2b4ff","disabled":true}],"authentication":{"type":"bearer","token":"{% response 'body', 'req_09c3f49bbd134a089ca757486ed1a725', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"},"metaSortKey":-1678123456805,"isPrivate":false,"pathParameters":[],"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_44c785ed9ad645d3ba38c5afd26f719b","parentId":"wrk_032c6ce28820408c8489e1045daad512","modified":1723661012331,"created":1678123456790,"url":"{{ _.base_url }}/check-ins/history","name":"Check-in History","description":"","method":"GET","body":{},"parameters":[],"headers":[{"name":"Authorization","value":"Bearer {token}","id":"pair_ec7d439e1be941df844c0e96b1ebcb33","disabled":true}],"authentication":{"type":"bearer","token":"{% response 'body', 'req_09c3f49bbd134a089ca757486ed1a725', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"},"metaSortKey":-1678123456798.5,"isPrivate":false,"pathParameters":[],"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_85e4965edddb42da87f3b15764527958","parentId":"wrk_032c6ce28820408c8489e1045daad512","modified":1723661246271,"created":1678123456792,"url":"{{ _.base_url }}/check-ins/:checkInId/validate","name":"Validate Check-in","description":"","method":"PATCH","body":{},"parameters":[],"headers":[],"authentication":{"type":"bearer","token":"{% response 'body', 'req_09c3f49bbd134a089ca757486ed1a725', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"},"metaSortKey":-1678123456792,"isPrivate":false,"pathParameters":[{"name":"checkInId","value":"e35003af-b082-4506-9d17-a7195249128f"}],"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"env_22c76b60e7f74da784cb69f140809c6a","parentId":"wrk_032c6ce28820408c8489e1045daad512","modified":1723660844236,"created":1677437963040,"name":"Base Environment","data":{"base_url":"localhost:3333"},"dataPropertyOrder":{"&":["base_url"]},"color":null,"isPrivate":false,"metaSortKey":1677437963040,"_type":"environment"},{"_id":"jar_7e3ec8e23129452fa5c0baefe4e54c67","parentId":"wrk_032c6ce28820408c8489e1045daad512","modified":1723661032530,"created":1677437963041,"name":"Default Jar","cookies":[{"key":"refreshToken","value":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQURNSU4iLCJzdWIiOiIzODgxZDFlZi0xMzM5LTQyMTgtYjI3Yy02YzJjYTkwZjhjYjUiLCJpYXQiOjE3MjM2NjEwMzIsImV4cCI6MTcyNDI2NTgzMn0.v4LYASznAuybdZUTB1cJ79mC7Uy608YA8iyM93mbNQw","domain":"localhost","path":"/","secure":true,"httpOnly":true,"hostOnly":true,"creation":"2024-08-13T18:06:06.006Z","lastAccessed":"2024-08-14T18:43:52.530Z","sameSite":"strict","id":"7455aee2-6ed4-4638-98ed-f08c9bc528cf"}],"_type":"cookie_jar"}]}
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2024-08-14T18:48:56.908Z",
+  "__export_source": "insomnia.desktop.app:v9.3.3",
+  "resources": [
+    {
+      "_id": "req_84ae415fcac1429c974cdda16db9ec50",
+      "parentId": "wrk_032c6ce28820408c8489e1045daad512",
+      "modified": 1723580115407,
+      "created": 1677437965899,
+      "url": "http://localhost:3333/users",
+      "name": "Create User",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"Thales Santana\",\n\t\"email\": \"admin@gmail.com\",\n\t\"password\": \"123456\",\n\t\"isAdmin\": true\n}"
+      },
+      "parameters": [],
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "authentication": {},
+      "metaSortKey": -1678123456893,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "wrk_032c6ce28820408c8489e1045daad512",
+      "parentId": null,
+      "modified": 1723569662943,
+      "created": 1723569662943,
+      "name": "gympass-style-app-api",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_09c3f49bbd134a089ca757486ed1a725",
+      "parentId": "wrk_032c6ce28820408c8489e1045daad512",
+      "modified": 1723588470911,
+      "created": 1677789216671,
+      "url": "http://localhost:3333/sessions",
+      "name": "Authenticate",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\": \"admin@gmail.com\",\n\t\"password\": \"123456\"\n}"
+      },
+      "parameters": [],
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "authentication": {},
+      "metaSortKey": -1678123456843,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_f7243ddaaed54e7e96a5754bae8a240a",
+      "parentId": "wrk_032c6ce28820408c8489e1045daad512",
+      "modified": 1723659741855,
+      "created": 1678130302602,
+      "url": "http://localhost:3333/me",
+      "name": "Profile",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{% response 'body', 'req_09c3f49bbd134a089ca757486ed1a725', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+      },
+      "metaSortKey": -1678123456836.75,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_c278b6af20df484b804190fa5b7d647e",
+      "parentId": "wrk_032c6ce28820408c8489e1045daad512",
+      "modified": 1723659773151,
+      "created": 1723572471431,
+      "url": "http://localhost:3333/gyms",
+      "name": "Create Gym",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"title\": \"Javascript Gym\",\n\t\"description\": \"Some Description\",\n\t\"phone\": \"31999999999\",\n\t\"latitude\": -27.1225285,\n\t\"longitude\": -43.9353341\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "id": "pair_1b8d2752534e4cde83a52239fc8b7368",
+          "name": "Content-Type",
+          "value": "application/json",
+          "description": "",
+          "disabled": false
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{% response 'body', 'req_09c3f49bbd134a089ca757486ed1a725', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+      },
+      "metaSortKey": -1678123456830.5,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_93719001de514adab06608dc57ee08f7",
+      "parentId": "wrk_032c6ce28820408c8489e1045daad512",
+      "modified": 1723659779789,
+      "created": 1678123456793,
+      "url": "http://localhost:3333/gyms/search",
+      "name": "Get All Gyms",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "id": "pair_5d704227c42d479fa781f05b628424dc",
+          "name": "query",
+          "value": "Javascript",
+          "description": "",
+          "disabled": false
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{% response 'body', 'req_09c3f49bbd134a089ca757486ed1a725', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+      },
+      "metaSortKey": -1678123456824.25,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_88f32f37636c411c86aae9d31fa585fb",
+      "parentId": "wrk_032c6ce28820408c8489e1045daad512",
+      "modified": 1723659792155,
+      "created": 1678123456789,
+      "url": "http://localhost:3333/gyms/02092317-d0e2-44c4-b025-e01f378743c1/check-ins",
+      "name": "Create Check-in",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"latitude\": -27.1225294,\n\t\"longitude\": -43.9353343\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_d7069a49eaf348e89ec90a229a2698f6"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {token}",
+          "id": "pair_a87c754011c94f419672350881237b76",
+          "disabled": true
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{% response 'body', 'req_09c3f49bbd134a089ca757486ed1a725', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+      },
+      "metaSortKey": -1678123456818,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_d2c1217f724742429cd0a055951125a1",
+      "parentId": "wrk_032c6ce28820408c8489e1045daad512",
+      "modified": 1723661064758,
+      "created": 1678123456791,
+      "url": "{{ _.base_url }}/check-ins/metrics",
+      "name": "Check-in Metrics",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {token}",
+          "id": "pair_cca4b5397428440582ad1b6a68b2b4ff",
+          "disabled": true
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{% response 'body', 'req_09c3f49bbd134a089ca757486ed1a725', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+      },
+      "metaSortKey": -1678123456805,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_44c785ed9ad645d3ba38c5afd26f719b",
+      "parentId": "wrk_032c6ce28820408c8489e1045daad512",
+      "modified": 1723661012331,
+      "created": 1678123456790,
+      "url": "{{ _.base_url }}/check-ins/history",
+      "name": "Check-in History",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {token}",
+          "id": "pair_ec7d439e1be941df844c0e96b1ebcb33",
+          "disabled": true
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{% response 'body', 'req_09c3f49bbd134a089ca757486ed1a725', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+      },
+      "metaSortKey": -1678123456798.5,
+      "isPrivate": false,
+      "pathParameters": [],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_85e4965edddb42da87f3b15764527958",
+      "parentId": "wrk_032c6ce28820408c8489e1045daad512",
+      "modified": 1723661246271,
+      "created": 1678123456792,
+      "url": "{{ _.base_url }}/check-ins/:checkInId/validate",
+      "name": "Validate Check-in",
+      "description": "",
+      "method": "PATCH",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{% response 'body', 'req_09c3f49bbd134a089ca757486ed1a725', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+      },
+      "metaSortKey": -1678123456792,
+      "isPrivate": false,
+      "pathParameters": [
+        { "name": "checkInId", "value": "e35003af-b082-4506-9d17-a7195249128f" }
+      ],
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_22c76b60e7f74da784cb69f140809c6a",
+      "parentId": "wrk_032c6ce28820408c8489e1045daad512",
+      "modified": 1723660844236,
+      "created": 1677437963040,
+      "name": "Base Environment",
+      "data": { "base_url": "localhost:3333" },
+      "dataPropertyOrder": { "&": ["base_url"] },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1677437963040,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_7e3ec8e23129452fa5c0baefe4e54c67",
+      "parentId": "wrk_032c6ce28820408c8489e1045daad512",
+      "modified": 1723661032530,
+      "created": 1677437963041,
+      "name": "Default Jar",
+      "cookies": [
+        {
+          "key": "refreshToken",
+          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQURNSU4iLCJzdWIiOiIzODgxZDFlZi0xMzM5LTQyMTgtYjI3Yy02YzJjYTkwZjhjYjUiLCJpYXQiOjE3MjM2NjEwMzIsImV4cCI6MTcyNDI2NTgzMn0.v4LYASznAuybdZUTB1cJ79mC7Uy608YA8iyM93mbNQw",
+          "domain": "localhost",
+          "path": "/",
+          "secure": true,
+          "httpOnly": true,
+          "hostOnly": true,
+          "creation": "2024-08-13T18:06:06.006Z",
+          "lastAccessed": "2024-08-14T18:43:52.530Z",
+          "sameSite": "strict",
+          "id": "7455aee2-6ed4-4638-98ed-f08c9bc528cf"
+        }
+      ],
+      "_type": "cookie_jar"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
-import { GymsRepository } from '@/repositories/gyms-repository';
-import { FetchNearbyGymsRequestType } from './types/request/FetchNearbyGymsRequestType';
-import { FetchNearbyGymsResponseType } from './types/response/FetchNearbyGymsResponseType';
+import { GymsRepository } from "@/repositories/gyms-repository";
+import { FetchNearbyGymsRequestType } from "./types/request/FetchNearbyGymsRequestType";
+import { FetchNearbyGymsResponseType } from "./types/response/FetchNearbyGymsResponseType";
 
 export class FetchNearbyGymsService {
   constructor(private gymsRepository: GymsRepository) {}

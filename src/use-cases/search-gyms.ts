@@ -1,6 +1,6 @@
-import { GymsRepository } from '@/repositories/gyms-repository';
-import { SearchGymRequestType } from './types/request/SearchGymRequestType';
-import { SearchGymResponseType } from './types/response/SearchGymResponseType';
+import { GymsRepository } from "@/repositories/gyms-repository";
+import { SearchGymRequestType } from "./types/request/SearchGymRequestType";
+import { SearchGymResponseType } from "./types/response/SearchGymResponseType";
 
 export class SearchGymService {
   constructor(private gymsRepository: GymsRepository) {}

@@ -13,19 +13,19 @@ paths:
           schema:
             type: string
       responses:
-        '201':
+        "201":
           description: Check-in created successfully.
   /check-ins/history:
     get:
       summary: Check-in History
       responses:
-        '200':
+        "200":
           description: List of check-ins.
   /check-ins/metrics:
     get:
       summary: Check-in Metrics
       responses:
-        '200':
+        "200":
           description: Metrics of check-ins.
   /check-ins/{checkInId}/validate:
     patch:
@@ -37,49 +37,49 @@ paths:
           schema:
             type: string
       responses:
-        '204':
+        "204":
           description: Check-in validated successfully.
   /gyms/search:
     get:
       summary: Search Gyms
       responses:
-        '200':
+        "200":
           description: List of gyms matching the search criteria.
   /gyms/nearby:
     get:
       summary: Nearby Gyms
       responses:
-        '200':
+        "200":
           description: List of nearby gyms.
   /gyms:
     post:
       summary: Create Gym
       responses:
-        '201':
+        "201":
           description: Gym created successfully.
   /users:
     post:
       summary: Register User
       responses:
-        '201':
+        "201":
           description: User registered successfully.
   /sessions:
     post:
       summary: Authenticate Session
       responses:
-        '200':
+        "200":
           description: User authenticated successfully.
   /token/refresh:
     patch:
       summary: Refresh Token
       responses:
-        '200':
+        "200":
           description: Token refreshed successfully.
   /me:
     get:
       summary: User Profile
       responses:
-        '200':
+        "200":
           description: User profile retrieved successfully.
 components:
   securitySchemes:

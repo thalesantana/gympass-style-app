@@ -1,11 +1,11 @@
-import { CheckInsRepository } from '@/repositories/check-ins-repository';
-import { GymsRepository } from '@/repositories/gyms-repository';
-import { ResourseNotFoundError } from './errors/resouse-not-found-error';
-import { getDistanceBetweenCoordinates } from '@/utils/get-distance-between-coordenates';
-import { MaxDistanceError } from './errors/max-distance-error';
-import { MaxNumberOfCheckInsError } from './errors/max-number-of-check-ins-error';
-import { CheckInRequestType } from './types/request/CheckInRequestType';
-import { CheckInResponseType } from './types/response/CheckInResponseType';
+import { CheckInsRepository } from "@/repositories/check-ins-repository";
+import { GymsRepository } from "@/repositories/gyms-repository";
+import { getDistanceBetweenCoordinates } from "@/utils/get-distance-between-coordenates";
+import { MaxDistanceError } from "./errors/max-distance-error";
+import { MaxNumberOfCheckInsError } from "./errors/max-number-of-check-ins-error";
+import { ResourseNotFoundError } from "./errors/resouse-not-found-error";
+import { CheckInRequestType } from "./types/request/CheckInRequestType";
+import { CheckInResponseType } from "./types/response/CheckInResponseType";
 
 export class CheckInService {
   constructor(

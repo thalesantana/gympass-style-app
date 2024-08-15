@@ -21,6 +21,7 @@ model User {
   created_at    DateTime @default(now())
 
   CheckIns CheckIn[]
+  gyms     Gym[]     @relation("UserGyms")
 
   @@map("users")
 }
@@ -47,7 +48,9 @@ model Gym {
   latitude    Decimal
   longitude   Decimal
 
-  checkIn CheckIn[]
+  checkIn  CheckIn[]
+  admin    User      @relation("UserGyms", fields: [admin_id], references: [id])
+  admin_id String    
 
   @@map("gyms")
 }

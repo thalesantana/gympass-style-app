@@ -1,6 +1,6 @@
-import { CheckInsRepository } from '@/repositories/check-ins-repository';
-import { FetchUserCheckInsRequestType } from './types/response/FetchUserCheckInsRequestType';
-import { FetchUserCheckInsResponseType } from './types/request/FetchUserCheckInsResponseType';
+import { CheckInsRepository } from "@/repositories/check-ins-repository";
+import { FetchCheckInsResponseType } from "./types/response/FetchCheckInsResponseType";
+import { FetchUserCheckInsRequestType } from "./types/response/FetchUserCheckInsRequestType";
 
 export class FetchUserCheckInsHistoryService {
   constructor(private checkInsRepository: CheckInsRepository) {}
@@ -8,7 +8,7 @@ export class FetchUserCheckInsHistoryService {
   async findManyByUserId({
     userId,
     page,
-  }: FetchUserCheckInsRequestType): Promise<FetchUserCheckInsResponseType> {
+  }: FetchUserCheckInsRequestType): Promise<FetchCheckInsResponseType> {
     const checkIns = await this.checkInsRepository.findManyByUserId(
       userId,
       page,

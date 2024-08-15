@@ -1,8 +1,8 @@
-import { UserAlreadyExistsError } from './errors/user-already-exists-error';
-import { UsersRepository } from '@/repositories/users-repository';
-import { CreateUserResponseType } from '@/use-cases/types/response/CreateUserResponseType';
-import { hash } from 'bcryptjs';
-import { ResgisterRequestType } from './types/request/registerRequestType';
+import { UsersRepository } from "@/repositories/users-repository";
+import { CreateUserResponseType } from "@/use-cases/types/response/CreateUserResponseType";
+import { hash } from "bcryptjs";
+import { UserAlreadyExistsError } from "./errors/user-already-exists-error";
+import { ResgisterRequestType } from "./types/request/registerRequestType";
 
 export class RegisterService {
   constructor(private usersRepository: UsersRepository) {}
