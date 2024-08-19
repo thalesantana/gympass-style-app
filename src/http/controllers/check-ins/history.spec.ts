@@ -1,5 +1,6 @@
 import { app } from "@/app";
 import { prisma } from "@/lib/prisma";
+import { createAndAuthenticateAdmin } from '@/utils/test/create-and-authenticate-admin';
 import { createAndAuthenticateUser } from "@/utils/test/create-and-authenticate-user";
 import request from "supertest";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
@@ -14,16 +15,18 @@ describe("Check-in History (e2e)", () => {
   });
 
   it("should be able to list the history of check-ins", async () => {
-    const { token } = await createAndAuthenticateUser(app);
+    const { token } = await createAndAuthenticateUser(app, true);
 
     const user = await prisma.user.findFirstOrThrow();
+    
+    const { admin } = await createAndAuthenticateAdmin(app); 
 
     const gym = await prisma.gym.create({
       data: {
         title: "JavaScript Gym",
         latitude: -27.2092052,
         longitude: -49.6401091,
-        admin_id: "admin_id",
+        admin_id: admin.id,
       },
     });
 
@@ -41,7 +44,7 @@ describe("Check-in History (e2e)", () => {
     });
 
     const response = await request(app.server)
-      .get("/check-ins/history")
+      .get("/check-ins/user/history")
       .set("Authorization", `Bearer ${token}`)
       .send();
 
